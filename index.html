@@ -85,6 +85,7 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
       <input id="f-area" placeholder="Delivery area (e.g. Avondale, Chitungwiza)" maxlength="80">
       <textarea id="f-note" placeholder="Anything else? Brand, when you need it…" maxlength="400"></textarea>
       <button class="p" id="send">Send on WhatsApp</button>
+      <p class="mut" id="fallback"></p>
       <p class="mut">This opens WhatsApp with your list. LB ELECTRICALS will reply to confirm what we can supply, plus the price and delivery.</p>
     </div>
   </section>
@@ -94,6 +95,7 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
       <h2>LB ELECTRICALS</h2>
       <p style="margin:0">Electrical supplies in <span id="area">Harare</span>: sockets, switches, conduit, cable, breakers, distribution boards and lighting.</p>
       <a class="p" id="wa" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Chat with us on WhatsApp</a>
+      <p class="mut">App version: <span id="ver"></span></p>
       <div class="note">Prices and availability are confirmed by us after you send an enquiry. For installation work, please use a qualified electrician.</div>
     </div>
   </section>
@@ -108,13 +110,14 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-let catalog=[],cfg={whatsapp:"",business:"LB ELECTRICALS",area:"Harare"},basket=[];
+const VERSION="v3";let catalog=[],cfg={whatsapp:"263784619172",business:"LB ELECTRICALS",area:"Harare"},basket=[];
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 function toast(t){const e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2500)}
 function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));window.scrollTo(0,0)}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.v));
 const waNum=()=>String(cfg.whatsapp||"").replace(/\D/g,"");
 const waReady=()=>waNum().length>=9&&!/X/i.test(cfg.whatsapp);
+function imgFix(el){const s=el.getAttribute("src")||"";if(!el.dataset.t){el.dataset.t=1;el.src=s.indexOf("img/")===0?s.slice(4):"img/"+s}else{const d=document.createElement("div");d.className="ph";d.textContent="⚡";el.replaceWith(d)}}
 
 function saveBasket(){store.set("lb_basket",basket);drawBasket()}
 function addItem(name){const b=basket.find(x=>x.n===name);if(b)b.q++;else basket.push({n:name,q:1});saveBasket();toast("Added to basket: "+name)}
@@ -127,14 +130,14 @@ function drawBasket(){
 function renderGrid(){
   const q=$("q").value.trim().toLowerCase(),cat=$("cat").value;
   const list=catalog.filter(i=>(!cat||i.c===cat)&&(!q||(i.n+" "+i.d+" "+i.c).toLowerCase().includes(q)));
-  $("grid").innerHTML=list.map(i=>`<div class="card item">${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" loading="lazy">`:'<div class="ph">⚡</div>'}
+  $("grid").innerHTML=list.map(i=>`<div class="card item">${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" onerror="imgFix(this)">`:'<div class="ph">⚡</div>'}
    <h4>${esc(i.n)}</h4><p>${esc(i.d)}</p>
    <div><span class="tag ${i.inStock!==false?'ok':'no'}">${i.inStock!==false?'We can supply':'Unavailable'}</span></div>
    ${i.price?`<div style="margin:2px 0 6px;font-weight:700">US$${esc(i.price)}</div>`:""}
    <button class="s bt" data-id="${esc(i.id)}" ${i.inStock!==false?"":"disabled"}>Add to basket</button></div>`).join("");
   $("nores").style.display=list.length?"none":"block";
-  $("grid").querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>addItem(catalog.find(x=>x.id===b.dataset.id).n));
 }
+$("grid").addEventListener("click",e=>{const b=e.target.closest("button[data-id]");if(!b)return;const it=catalog.find(x=>x.id===b.dataset.id);if(!it)return;addItem(it.n);const t=b.textContent;b.textContent="Added ✓";b.style.background="#e3f5ea";setTimeout(()=>{b.textContent=t;b.style.background=""},1200)});
 $("addother").onclick=()=>{const v=$("other").value.trim();if(v){addItem(v);$("other").value=""}};
 $("other").onkeydown=e=>{if(e.key==="Enter")$("addother").click()};
 $("send").onclick=()=>{
@@ -143,7 +146,9 @@ $("send").onclick=()=>{
   store.set("lb_contact",{name:$("f-name").value,area:$("f-area").value});
   const lines=basket.map(b=>`• ${b.n} × ${b.q}`).join("\n");
   const msg=`Hello ${cfg.business}, I'd like to enquire about:\n${lines}\n\n`+($("f-name").value.trim()?`Name: ${$("f-name").value.trim()}\n`:"")+($("f-area").value.trim()?`Delivery area: ${$("f-area").value.trim()}\n`:"")+($("f-note").value.trim()?`Note: ${$("f-note").value.trim()}\n`:"")+`\nPlease confirm if you can supply, the price and delivery. Thank you.`;
-  window.open("https://wa.me/"+waNum()+"?text="+encodeURIComponent(msg),"_blank");
+  const url="https://wa.me/"+waNum()+"?text="+encodeURIComponent(msg);
+  $("fallback").innerHTML='<a href="'+url+'" target="_blank" rel="noopener" style="color:#1a8f4c;font-weight:700">Tap here if WhatsApp did not open</a>';
+  const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
 };
 const offl=()=>$("off").style.display=navigator.onLine?"none":"block";addEventListener("online",offl);addEventListener("offline",offl);offl();
 let dp=null;
@@ -157,7 +162,7 @@ if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWork
 (async()=>{
   basket=store.get("lb_basket",[]);const c=store.get("lb_contact",{});$("f-name").value=c.name||"";$("f-area").value=c.area||"";
   try{cfg={...cfg,...await (await fetch("config.json")).json()}}catch{}
-  $("area").textContent=cfg.area||"Harare";
+  $("area").textContent=cfg.area||"Harare";$("ver").textContent=VERSION;
   if(waReady())$("wa").href="https://wa.me/"+waNum()+"?text="+encodeURIComponent(`Hello ${cfg.business}, I'd like to enquire about electrical goods.`);else $("wa").style.display="none";
   try{catalog=await (await fetch("catalog.json")).json()}catch{}
   $("cat").innerHTML='<option value="">All categories</option>'+[...new Set(catalog.map(i=>i.c))].map(c=>`<option>${esc(c)}</option>`).join("");
