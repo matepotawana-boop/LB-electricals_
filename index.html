@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>LB ELECTRICALS</title>
+<meta name="description" content="Sockets, switches, conduit, cable, breakers and lighting. Search and order on WhatsApp from LB ELECTRICALS, Harare.">
+<meta name="theme-color" content="#14213d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LB Electricals">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<style>
+:root{--bg:#f3f5f8;--card:#fff;--ink:#14213d;--mut:#5b667a;--line:#e1e5ec;--acc:#f5a300;--navy:#14213d;--ok:#1a8f4c;--no:#c0392b;--nav:62px}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;height:100%}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.4}
+header{position:sticky;top:0;z-index:5;background:var(--navy);color:#fff;padding:calc(10px + env(safe-area-inset-top)) 14px 10px;display:flex;align-items:center;gap:10px}
+.logo{font-weight:800;font-size:19px;letter-spacing:.5px}.logo span{color:var(--acc)}.sp{flex:1}
+.inst{background:var(--acc);color:var(--navy);border:0;padding:7px 12px;border-radius:99px;font-weight:700;font-size:13px;display:none}
+main{padding:12px 12px calc(var(--nav) + 18px + env(safe-area-inset-bottom));max-width:720px;margin:0 auto}
+.view{display:none}.view.on{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+h2{margin:0 0 8px;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+@media(min-width:560px){.grid{grid-template-columns:repeat(3,1fr)}}
+.item{padding:10px;display:flex;flex-direction:column}
+.item img{width:100%;height:120px;object-fit:contain;background:#fff;border-radius:8px;margin-bottom:6px}
+.item .ph{height:120px;border-radius:8px;background:#eef1f6;display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:6px}
+.item h4{margin:0 0 3px;font-size:14px;line-height:1.25}.item p{margin:0 0 6px;color:var(--mut);font-size:12px}.item .bt{margin-top:auto}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;background:#eef1f6;color:var(--mut);margin:0 4px 4px 0}
+.tag.ok{background:#e3f5ea;color:var(--ok)}.tag.no{background:#fdeaea;color:var(--no)}
+input,textarea,select{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:16px;background:#fff}
+textarea{min-height:70px;resize:vertical}
+button{font:inherit}
+.p{background:#25d366;color:#fff;border:0;padding:13px 16px;border-radius:10px;font-weight:700;cursor:pointer;width:100%}
+.a{background:var(--acc);color:var(--navy);border:0;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+.s{background:#fff;color:var(--ink);border:1px solid var(--line);padding:9px 12px;border-radius:10px;cursor:pointer;width:100%}
+button:disabled{opacity:.5}
+.row{display:flex;gap:8px;align-items:center}
+.stack>*+*{margin-top:12px}
+.mut{color:var(--mut);font-size:13px}
+.line{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.line:last-child{border-bottom:0}.line b{flex:1;font-size:14px}
+.qty{display:flex;align-items:center;gap:6px}.qty button{width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:18px}
+.qty span{min-width:22px;text-align:center}
+.rm{background:none;border:0;color:var(--no);font-size:20px}
+.note{background:#fff8e6;border:1px solid #f1dca5;border-radius:10px;padding:10px;font-size:13px}
+nav{position:fixed;left:0;right:0;bottom:0;z-index:6;background:#fff;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;height:var(--nav);background:none;border:0;color:var(--mut);font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;position:relative}
+nav button .i{font-size:22px;line-height:1}
+nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:"";position:absolute;top:0;left:25%;right:25%;height:3px;background:var(--acc);border-radius:0 0 3px 3px}
+.badge{position:absolute;top:7px;right:calc(50% - 24px);background:var(--no);color:#fff;border-radius:99px;font-size:10px;min-width:16px;height:16px;line-height:16px;text-align:center;display:none}
+.toast{position:fixed;left:12px;right:12px;bottom:calc(var(--nav) + 12px + env(safe-area-inset-bottom));background:var(--navy);color:#fff;padding:12px 14px;border-radius:12px;z-index:9;display:none;font-size:14px}
+.off{background:#fff4dc;color:#b7791f;text-align:center;font-size:12px;padding:4px;display:none}
+.ios{display:none}
+</style>
+</head>
+<body>
+<header><div class="logo">LB <span>ELECTRICALS</span></div><div class="sp"></div><button class="inst" id="inst">Install app</button></header>
+<div class="off" id="off">You're offline. Showing the last saved catalogue.</div>
+<main>
+  <section id="v-shop" class="view on stack">
+    <div class="card ios" id="ios">To install on iPhone: tap <b>Share</b>, then <b>Add to Home Screen</b>.</div>
+    <div class="card">
+      <input id="q" type="search" placeholder="Search sockets, conduit, cable, breakers…">
+      <div style="margin-top:8px"><select id="cat"></select></div>
+      <div id="grid" class="grid"></div>
+      <p class="mut" id="nores" style="display:none">Can't find it? Add it by name in your Basket and we'll check if we can supply it.</p>
+    </div>
+  </section>
+
+  <section id="v-basket" class="view stack">
+    <div class="card">
+      <h2>My basket</h2>
+      <div id="lines"><p class="mut">Your basket is empty. Add items from the Shop.</p></div>
+      <div class="row" style="margin-top:10px"><input id="other" placeholder="Add another item by name…" maxlength="120"><button class="a" id="addother">Add</button></div>
+    </div>
+    <div class="card stack">
+      <h2>Send order enquiry</h2>
+      <input id="f-name" placeholder="Your name" maxlength="80" autocomplete="name">
+      <input id="f-area" placeholder="Delivery area (e.g. Avondale, Chitungwiza)" maxlength="80">
+      <textarea id="f-note" placeholder="Anything else? Brand, when you need it…" maxlength="400"></textarea>
+      <button class="p" id="send">Send on WhatsApp</button>
+      <p class="mut">This opens WhatsApp with your list. LB ELECTRICALS will reply to confirm what we can supply, plus the price and delivery.</p>
+    </div>
+  </section>
+
+  <section id="v-about" class="view stack">
+    <div class="card stack">
+      <h2>LB ELECTRICALS</h2>
+      <p style="margin:0">Electrical supplies in <span id="area">Harare</span>: sockets, switches, conduit, cable, breakers, distribution boards and lighting.</p>
+      <a class="p" id="wa" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Chat with us on WhatsApp</a>
+      <div class="note">Prices and availability are confirmed by us after you send an enquiry. For installation work, please use a qualified electrician.</div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast"></div>
+<nav>
+  <button data-v="shop" class="on"><span class="i">🛒</span>Shop</button>
+  <button data-v="basket"><span class="i">🧺</span>Basket<span class="badge" id="badge"></span></button>
+  <button data-v="about"><span class="i">💬</span>Contact</button>
+</nav>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let catalog=[],cfg={whatsapp:"",business:"LB ELECTRICALS",area:"Harare"},basket=[];
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+function toast(t){const e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2500)}
+function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));window.scrollTo(0,0)}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.v));
+const waNum=()=>String(cfg.whatsapp||"").replace(/\D/g,"");
+const waReady=()=>waNum().length>=9&&!/X/i.test(cfg.whatsapp);
+
+function saveBasket(){store.set("lb_basket",basket);drawBasket()}
+function addItem(name){const b=basket.find(x=>x.n===name);if(b)b.q++;else basket.push({n:name,q:1});saveBasket();toast("Added to basket: "+name)}
+function drawBasket(){
+  const n=basket.reduce((a,b)=>a+b.q,0);$("badge").textContent=n;$("badge").style.display=n?"block":"none";
+  $("lines").innerHTML=basket.length?basket.map((b,i)=>`<div class="line"><b>${esc(b.n)}</b><div class="qty"><button data-i="${i}" data-d="-1">−</button><span>${b.q}</span><button data-i="${i}" data-d="1">+</button></div><button class="rm" data-r="${i}" aria-label="Remove">×</button></div>`).join(""):'<p class="mut">Your basket is empty. Add items from the Shop.</p>';
+  $("lines").querySelectorAll("[data-d]").forEach(x=>x.onclick=()=>{const b=basket[x.dataset.i];b.q=Math.max(1,b.q+Number(x.dataset.d));saveBasket()});
+  $("lines").querySelectorAll("[data-r]").forEach(x=>x.onclick=()=>{basket.splice(x.dataset.r,1);saveBasket()});
+}
+function renderGrid(){
+  const q=$("q").value.trim().toLowerCase(),cat=$("cat").value;
+  const list=catalog.filter(i=>(!cat||i.c===cat)&&(!q||(i.n+" "+i.d+" "+i.c).toLowerCase().includes(q)));
+  $("grid").innerHTML=list.map(i=>`<div class="card item">${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" loading="lazy">`:'<div class="ph">⚡</div>'}
+   <h4>${esc(i.n)}</h4><p>${esc(i.d)}</p>
+   <div><span class="tag ${i.inStock!==false?'ok':'no'}">${i.inStock!==false?'We can supply':'Unavailable'}</span></div>
+   ${i.price?`<div style="margin:2px 0 6px;font-weight:700">US$${esc(i.price)}</div>`:""}
+   <button class="s bt" data-id="${esc(i.id)}" ${i.inStock!==false?"":"disabled"}>Add to basket</button></div>`).join("");
+  $("nores").style.display=list.length?"none":"block";
+  $("grid").querySelectorAll("button[data-id]").forEach(b=>b.onclick=()=>addItem(catalog.find(x=>x.id===b.dataset.id).n));
+}
+$("addother").onclick=()=>{const v=$("other").value.trim();if(v){addItem(v);$("other").value=""}};
+$("other").onkeydown=e=>{if(e.key==="Enter")$("addother").click()};
+$("send").onclick=()=>{
+  if(!basket.length){toast("Add at least one item first");return}
+  if(!waReady()){alert("The shop's WhatsApp number isn't set up yet. Please try again later.");return}
+  store.set("lb_contact",{name:$("f-name").value,area:$("f-area").value});
+  const lines=basket.map(b=>`• ${b.n} × ${b.q}`).join("\n");
+  const msg=`Hello ${cfg.business}, I'd like to enquire about:\n${lines}\n\n`+($("f-name").value.trim()?`Name: ${$("f-name").value.trim()}\n`:"")+($("f-area").value.trim()?`Delivery area: ${$("f-area").value.trim()}\n`:"")+($("f-note").value.trim()?`Note: ${$("f-note").value.trim()}\n`:"")+`\nPlease confirm if you can supply, the price and delivery. Thank you.`;
+  window.open("https://wa.me/"+waNum()+"?text="+encodeURIComponent(msg),"_blank");
+};
+const offl=()=>$("off").style.display=navigator.onLine?"none":"block";addEventListener("online",offl);addEventListener("offline",offl);offl();
+let dp=null;
+addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("inst").style.display="inline-block"});
+$("inst").onclick=async()=>{if(!dp)return;dp.prompt();await dp.userChoice;dp=null;$("inst").style.display="none"};
+addEventListener("appinstalled",()=>{$("inst").style.display="none"});
+const standalone=matchMedia("(display-mode: standalone)").matches||navigator.standalone;
+if(/iphone|ipad|ipod/i.test(navigator.userAgent)&&!standalone)$("ios").style.display="block";
+if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+
+(async()=>{
+  basket=store.get("lb_basket",[]);const c=store.get("lb_contact",{});$("f-name").value=c.name||"";$("f-area").value=c.area||"";
+  try{cfg={...cfg,...await (await fetch("config.json")).json()}}catch{}
+  $("area").textContent=cfg.area||"Harare";
+  if(waReady())$("wa").href="https://wa.me/"+waNum()+"?text="+encodeURIComponent(`Hello ${cfg.business}, I'd like to enquire about electrical goods.`);else $("wa").style.display="none";
+  try{catalog=await (await fetch("catalog.json")).json()}catch{}
+  $("cat").innerHTML='<option value="">All categories</option>'+[...new Set(catalog.map(i=>i.c))].map(c=>`<option>${esc(c)}</option>`).join("");
+  renderGrid();drawBasket();
+})();
+</script>
+</body>
+</html>
