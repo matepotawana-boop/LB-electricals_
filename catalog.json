@@ -1,0 +1,14 @@
+[
+  {"name": "Fused Spur Switch - FCU", "price": "4.00", "image": "fcu.jpg", "inStock": true},
+  {"name": "Eurolux Flexible Desk Lamp - Grey", "price": "15.00", "image": "lamp.jpg", "inStock": true},
+  {"name": "Single Socket 13A with Switch", "price": "5.00", "image": "sock-13a-1sw.jpg", "inStock": true},
+  {"name": "Double Socket 13A - 2 Gang", "price": "5.00", "image": "sock-13a-2.jpg", "inStock": true},
+  {"name": "Double Socket 13A with Switches", "price": "6.00", "image": "sock-13a-2sw.jpg", "inStock": true},
+  {"name": "Single Socket with USB", "price": "7.00", "image": "sock-1usb.jpg", "inStock": true},
+  {"name": "Universal Socket with USB", "price": "8.00", "image": "sock-univ-usb.jpg", "inStock": true},
+  {"name": "Universal Socket", "price": "5.00", "image": "sock-univ.jpg", "inStock": true},
+  {"name": "Socket with USB", "price": "8.00", "image": "sock-usb.jpg", "inStock": true},
+  {"name": "Switch 1 Gang", "price": "3.50", "image": "sw-1g.jpg", "inStock": true},
+  {"name": "Switch 2 Gang", "price": "4.50", "image": "sw-2g.jpg", "inStock": true},
+  {"name": "Switch 4 Gang", "price": "6.50", "image": "sw-4g.jpg", "inStock": true}
+]
