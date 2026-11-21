@@ -57,6 +57,35 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
 .toast{position:fixed;left:12px;right:12px;bottom:calc(var(--nav) + 12px + env(safe-area-inset-bottom));background:var(--navy);color:#fff;padding:12px 14px;border-radius:12px;z-index:9;display:none;font-size:14px}
 .off{background:#fff4dc;color:#b7791f;text-align:center;font-size:12px;padding:4px;display:none}
 .ios{display:none}
+.hero{background:linear-gradient(135deg,#14213d 0%,#23365f 60%,#f5a300 160%);color:#fff;border-radius:18px;padding:18px 16px;box-shadow:0 6px 18px rgba(20,33,61,.25)}
+.hero h1{margin:0 0 6px;font-size:22px;line-height:1.2}.hero p{margin:0 0 12px;opacity:.85;font-size:14px}
+.hero .row>*{flex:1;min-width:120px;text-align:center}
+.wbtn{display:block;background:#25d366;color:#fff;text-decoration:none;font-weight:700;padding:10px 14px;border-radius:10px}
+.trust{display:flex;gap:8px;margin-top:12px}.trust div{flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:7px 6px;font-size:11px;text-align:center}
+.cats{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;margin:10px -2px 0;scrollbar-width:none}.cats::-webkit-scrollbar{display:none}
+.cc{flex:none;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-size:13px;white-space:nowrap}
+.cc.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.item{box-shadow:0 1px 3px rgba(20,33,61,.06)}.item .open{cursor:pointer}
+.sheetbg{position:fixed;inset:0;background:rgba(10,15,30,.55);z-index:20;display:none;align-items:flex-end;justify-content:center}
+.sheet{background:#fff;width:100%;max-width:720px;border-radius:20px 20px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom));max-height:90vh;overflow:auto;position:relative}
+.sheet .x{position:absolute;right:12px;top:10px;border:0;background:#eef1f6;border-radius:99px;width:34px;height:34px;font-size:18px}
+.sheet img,.sheet .ph{width:100%;height:230px;object-fit:contain;background:#f6f7f9;border-radius:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:center;font-size:50px}
+.sheet h3{margin:2px 0 4px;font-size:20px}
+.lb{position:fixed;inset:0;background:rgba(5,8,18,.96);z-index:30;display:none;align-items:center;justify-content:center;flex-direction:column}.lb img{max-width:100%;max-height:88vh;object-fit:contain}.lb span{color:#fff;opacity:.7;font-size:13px;margin-top:8px}
+.item,.rc{cursor:pointer}.item:active,.rc:active{transform:scale(.985)}
+.stepper{display:flex;align-items:center;gap:10px}.stepper button{width:40px;height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:20px}.stepper b{min-width:30px;text-align:center;font-size:18px}
+.total{display:flex;justify-content:space-between;font-weight:700;padding-top:10px;border-top:2px solid var(--line);margin-top:6px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:14px}.chk input{width:20px;height:20px;margin-top:2px}
+.brand{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px;margin-bottom:2px}
+.chat{height:calc(100vh - 235px);min-height:280px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:8px;background:#fafbfc;border:1px solid var(--line);border-radius:12px}
+.m{max-width:90%;padding:9px 12px;border-radius:14px;font-size:15px;white-space:pre-wrap;word-wrap:break-word}
+.m.u{align-self:flex-end;background:var(--navy);color:#fff}.m.a{align-self:flex-start;background:#fff;border:1px solid var(--line)}
+.rc{display:flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:8px;align-self:stretch}
+.rc img,.rc .ph{width:60px;height:60px;object-fit:contain;border-radius:8px;background:#f3f5f8;flex:none;display:flex;align-items:center;justify-content:center;font-size:22px}
+.rc .t{flex:1;font-size:13px;line-height:1.3}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start}
+.chip{background:#fff;border:1px solid var(--acc);color:var(--navy);border-radius:99px;padding:8px 13px;font-size:13px;cursor:pointer}
+a.chip{text-decoration:none;background:#25d366;border-color:#25d366;color:#fff;font-weight:700}
 </style>
 </head>
 <body>
@@ -65,11 +94,26 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
 <main>
   <section id="v-shop" class="view on stack">
     <div class="card ios" id="ios">To install on iPhone: tap <b>Share</b>, then <b>Add to Home Screen</b>.</div>
+    <div class="hero">
+      <h1>Everything electrical, one message away</h1>
+      <p>Sockets, switches, cable, breakers and lighting for homes, electricians and builders.</p>
+      <div class="row"><button class="a" id="hero-chat">Ask the assistant</button><a class="wbtn" id="hero-wa" href="#" target="_blank" rel="noopener">WhatsApp us</a></div>
+      <div class="trust"><div>🛒<br>Order in minutes</div><div>💬<br>Replies on WhatsApp</div><div>🔧<br>Trade welcome</div></div>
+    </div>
     <div class="card">
       <input id="q" type="search" placeholder="Search sockets, conduit, cable, breakers…">
-      <div style="margin-top:8px"><select id="cat"></select></div>
+      <input type="hidden" id="cat" value="">
+      <div class="cats" id="cats"></div>
       <div id="grid" class="grid"></div>
       <p class="mut" id="nores" style="display:none">Can't find it? Add it by name in your Basket and we'll check if we can supply it.</p>
+    </div>
+  </section>
+
+  <section id="v-chat" class="view stack">
+    <div class="card">
+      <div id="chat" class="chat" aria-live="polite"></div>
+      <div class="row" style="margin-top:8px"><input id="cin" placeholder="Ask about an item or how to order…" maxlength="200" enterkeyhint="send"><button class="a" id="csend">Send</button></div>
+      <p class="mut" style="margin-bottom:0">Our assistant finds items and fills your basket. The LB ELECTRICALS team confirms stock, price and delivery.</p>
     </div>
   </section>
 
@@ -77,12 +121,14 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
     <div class="card">
       <h2>My basket</h2>
       <div id="lines"><p class="mut">Your basket is empty. Add items from the Shop.</p></div>
+      <div id="totalbox"></div>
       <div class="row" style="margin-top:10px"><input id="other" placeholder="Add another item by name…" maxlength="120"><button class="a" id="addother">Add</button></div>
     </div>
     <div class="card stack">
       <h2>Send order enquiry</h2>
       <input id="f-name" placeholder="Your name" maxlength="80" autocomplete="name">
       <input id="f-area" placeholder="Delivery area (e.g. Avondale, Chitungwiza)" maxlength="80">
+      <label class="chk"><input type="checkbox" id="f-trade"><span>I'm an electrician / contractor (trade customer)</span></label>
       <textarea id="f-note" placeholder="Anything else? Brand, when you need it…" maxlength="400"></textarea>
       <button class="p" id="send">Send on WhatsApp</button>
       <p class="mut" id="fallback"></p>
@@ -94,50 +140,57 @@ nav button.on{color:var(--navy);font-weight:700}nav button.on::before{content:""
     <div class="card stack">
       <h2>LB ELECTRICALS</h2>
       <p style="margin:0">Electrical supplies in <span id="area">Harare</span>: sockets, switches, conduit, cable, breakers, distribution boards and lighting.</p>
+      <a class="p" id="share" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none;background:#14213d">Share this app with a friend</a>
       <a class="p" id="wa" href="#" target="_blank" rel="noopener" style="display:block;text-align:center;text-decoration:none">Chat with us on WhatsApp</a>
       <p class="mut">App version: <span id="ver"></span></p>
       <div class="note">Prices and availability are confirmed by us after you send an enquiry. For installation work, please use a qualified electrician.</div>
     </div>
   </section>
 </main>
+<div class="sheetbg" id="sheetbg"><div class="sheet" id="sheet"></div></div>
+<div class="lb" id="lightbox"><img id="lbimg" alt=""><span>Tap to close</span></div>
 <div class="toast" id="toast"></div>
 <nav>
   <button data-v="shop" class="on"><span class="i">🛒</span>Shop</button>
+  <button data-v="chat"><span class="i">💬</span>Assistant</button>
   <button data-v="basket"><span class="i">🧺</span>Basket<span class="badge" id="badge"></span></button>
-  <button data-v="about"><span class="i">💬</span>Contact</button>
+  <button data-v="about"><span class="i">📞</span>Contact</button>
 </nav>
 
 <script>
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const VERSION="v3";let catalog=[],cfg={whatsapp:"263784619172",business:"LB ELECTRICALS",area:"Harare"},basket=[];
+const VERSION="v6";let catalog=[],cfg={whatsapp:"263784619172",business:"LB ELECTRICALS",area:"Harare"},basket=[];
 const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
 function toast(t){const e=$("toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2500)}
-function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));window.scrollTo(0,0)}
+function go(v){document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x.id==="v-"+v));document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));window.scrollTo(0,0);if(v==="chat")setTimeout(()=>{$("chat").scrollTop=1e9},30)}
 document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>go(b.dataset.v));
 const waNum=()=>String(cfg.whatsapp||"").replace(/\D/g,"");
 const waReady=()=>waNum().length>=9&&!/X/i.test(cfg.whatsapp);
 function imgFix(el){const s=el.getAttribute("src")||"";if(!el.dataset.t){el.dataset.t=1;el.src=s.indexOf("img/")===0?s.slice(4):"img/"+s}else{const d=document.createElement("div");d.className="ph";d.textContent="⚡";el.replaceWith(d)}}
 
 function saveBasket(){store.set("lb_basket",basket);drawBasket()}
-function addItem(name){const b=basket.find(x=>x.n===name);if(b)b.q++;else basket.push({n:name,q:1});saveBasket();toast("Added to basket: "+name)}
+function addItem(name,qty=1){const b=basket.find(x=>x.n===name);if(b)b.q+=qty;else basket.push({n:name,q:qty});saveBasket();toast("Added to basket: "+name)}
 function drawBasket(){
   const n=basket.reduce((a,b)=>a+b.q,0);$("badge").textContent=n;$("badge").style.display=n?"block":"none";
   $("lines").innerHTML=basket.length?basket.map((b,i)=>`<div class="line"><b>${esc(b.n)}</b><div class="qty"><button data-i="${i}" data-d="-1">−</button><span>${b.q}</span><button data-i="${i}" data-d="1">+</button></div><button class="rm" data-r="${i}" aria-label="Remove">×</button></div>`).join(""):'<p class="mut">Your basket is empty. Add items from the Shop.</p>';
+  let tot=0,unp=0;basket.forEach(b=>{const it=catalog.find(x=>x.n===b.n);const pr=it&&parseFloat(it.price);if(pr>0)tot+=pr*b.q;else unp++});
+  $("totalbox").innerHTML=basket.length?(tot>0?`<div class="total"><span>Listed prices total</span><span>US$${tot.toFixed(2)}</span></div><p class="mut" style="margin:4px 0 0">${unp?unp+" item(s) have no listed price. ":""}We confirm the final price on WhatsApp.</p>`:'<p class="mut" style="margin:8px 0 0">We\'ll confirm prices on WhatsApp.</p>')+'<button class="s" id="clr" style="margin-top:10px">Clear basket</button>':"";
+  if($("clr"))$("clr").onclick=()=>{basket=[];saveBasket()};
   $("lines").querySelectorAll("[data-d]").forEach(x=>x.onclick=()=>{const b=basket[x.dataset.i];b.q=Math.max(1,b.q+Number(x.dataset.d));saveBasket()});
   $("lines").querySelectorAll("[data-r]").forEach(x=>x.onclick=()=>{basket.splice(x.dataset.r,1);saveBasket()});
 }
 function renderGrid(){
   const q=$("q").value.trim().toLowerCase(),cat=$("cat").value;
-  const list=catalog.filter(i=>(!cat||i.c===cat)&&(!q||(i.n+" "+i.d+" "+i.c).toLowerCase().includes(q)));
-  $("grid").innerHTML=list.map(i=>`<div class="card item">${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" onerror="imgFix(this)">`:'<div class="ph">⚡</div>'}
-   <h4>${esc(i.n)}</h4><p>${esc(i.d)}</p>
+  const list=catalog.filter(i=>(!cat||i.c===cat)&&(!q||(i.n+" "+i.d+" "+i.c+" "+(i.brand||"")).toLowerCase().includes(q)));
+  $("grid").innerHTML=list.map(i=>`<div class="card item" data-open="${esc(i.id)}"><div class="open">${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" onerror="imgFix(this)">`:'<div class="ph">⚡</div>'}</div>
+   ${i.brand?`<div class="brand">${esc(i.brand)}</div>`:""}<h4 class="open">${esc(i.n)}</h4><p>${esc(i.d)}</p>
    <div><span class="tag ${i.inStock!==false?'ok':'no'}">${i.inStock!==false?'We can supply':'Unavailable'}</span></div>
    ${i.price?`<div style="margin:2px 0 6px;font-weight:700">US$${esc(i.price)}</div>`:""}
    <button class="s bt" data-id="${esc(i.id)}" ${i.inStock!==false?"":"disabled"}>Add to basket</button></div>`).join("");
   $("nores").style.display=list.length?"none":"block";
 }
-$("grid").addEventListener("click",e=>{const b=e.target.closest("button[data-id]");if(!b)return;const it=catalog.find(x=>x.id===b.dataset.id);if(!it)return;addItem(it.n);const t=b.textContent;b.textContent="Added ✓";b.style.background="#e3f5ea";setTimeout(()=>{b.textContent=t;b.style.background=""},1200)});
+$("grid").addEventListener("click",e=>{const b=e.target.closest("button[data-id]");if(!b){const o=e.target.closest("[data-open]");if(o)openSheet(o.dataset.open);return}const it=catalog.find(x=>x.id===b.dataset.id);if(!it)return;addItem(it.n);const t=b.textContent;b.textContent="Added ✓";b.style.background="#e3f5ea";setTimeout(()=>{b.textContent=t;b.style.background=""},1200)});
 $("addother").onclick=()=>{const v=$("other").value.trim();if(v){addItem(v);$("other").value=""}};
 $("other").onkeydown=e=>{if(e.key==="Enter")$("addother").click()};
 $("send").onclick=()=>{
@@ -145,11 +198,112 @@ $("send").onclick=()=>{
   if(!waReady()){alert("The shop's WhatsApp number isn't set up yet. Please try again later.");return}
   store.set("lb_contact",{name:$("f-name").value,area:$("f-area").value});
   const lines=basket.map(b=>`• ${b.n} × ${b.q}`).join("\n");
-  const msg=`Hello ${cfg.business}, I'd like to enquire about:\n${lines}\n\n`+($("f-name").value.trim()?`Name: ${$("f-name").value.trim()}\n`:"")+($("f-area").value.trim()?`Delivery area: ${$("f-area").value.trim()}\n`:"")+($("f-note").value.trim()?`Note: ${$("f-note").value.trim()}\n`:"")+`\nPlease confirm if you can supply, the price and delivery. Thank you.`;
+  const msg=`Hello ${cfg.business}, I'd like to enquire about:\n${lines}\n\n`+($("f-name").value.trim()?`Name: ${$("f-name").value.trim()}\n`:"")+($("f-area").value.trim()?`Delivery area: ${$("f-area").value.trim()}\n`:"")+($("f-trade").checked?"Trade customer: yes (electrician/contractor)\n":"")+($("f-note").value.trim()?`Note: ${$("f-note").value.trim()}\n`:"")+`\nPlease confirm if you can supply, the price and delivery. Thank you.`;
   const url="https://wa.me/"+waNum()+"?text="+encodeURIComponent(msg);
   $("fallback").innerHTML='<a href="'+url+'" target="_blank" rel="noopener" style="color:#1a8f4c;font-weight:700">Tap here if WhatsApp did not open</a>';
   const a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove();
 };
+/* ---------- Assistant (works without internet or any paid service) ---------- */
+const DEF_FAQ={
+ delivery:"We can arrange delivery. Add your area in the Basket and we'll confirm the cost and time on WhatsApp.",
+ payment:"We confirm the price and how to pay on WhatsApp once you send your list.",
+ hours:"Message us on WhatsApp for our location and opening hours.",
+ location:"Message us on WhatsApp for our location and opening hours."};
+const SYN={wire:"cable",wires:"cable",wiring:"cable",plug:"socket",plugs:"socket",outlet:"socket",outlets:"socket",point:"socket",points:"socket",stove:"cooker",oven:"cooker",spotlight:"downlight",spotlights:"downlight",trip:"breaker",tripping:"breaker",mcb:"breaker",rcd:"leakage",rcbo:"leakage",pipe:"conduit",pipes:"conduit",globe:"bulb",globes:"bulb",charger:"usb",charging:"usb",db:"distribution",board:"distribution",boards:"distribution",lights:"light",lighting:"light",solarcable:"solar",extension:"extension"};
+const STOP=new Set("i need want do you have any the a an for to of and is are please pls got sell buy looking some with me my how much what price cost can get show in stock available selling it this that on there your we us u ur im am would like give tell about".split(" "));
+const CHIPS=["Show sockets","Show cables","Show lights","Breakers & boards","How do I order?","Talk to a person"];
+let thread=[];
+function waLink(msg){return "https://wa.me/"+waNum()+"?text="+encodeURIComponent(msg)}
+function basketText(){return basket.map(b=>"• "+b.n+" × "+b.q).join("\n")}
+function search(q){
+  let toks=(q.toLowerCase().match(/[a-z0-9.]+/g)||[]).filter(t=>!STOP.has(t));
+  const ex=[];toks.forEach(t=>{if(SYN[t])ex.push(...SYN[t].split(" "))});
+  toks=[...new Set(toks.concat(ex).map(t=>t.length>3&&t.endsWith("s")?t.slice(0,-1):t))].filter(t=>t.length>=2);
+  if(!toks.length)return [];
+  const scored=catalog.map(i=>{const n=i.n.toLowerCase(),c=i.c.toLowerCase(),d=i.d.toLowerCase(),br=(i.brand||"").toLowerCase();let sc=0;toks.forEach(t=>{if(n.includes(t))sc+=3;if(c.includes(t))sc+=2;if(br.includes(t))sc+=2;if(d.includes(t))sc+=1});return {i,sc}}).filter(x=>x.sc>0).sort((a,b)=>b.sc-a.sc);
+  if(!scored.length)return [];
+  const top=scored[0].sc;return scored.filter(x=>x.sc>=Math.max(1,top*0.6)).slice(0,4).map(x=>x.i.id);
+}
+function reply(q){
+  const t=q.toLowerCase().trim();
+  const faq={...DEF_FAQ,...(cfg.faq||{})};
+  if(/^(hi|hie|hey|hello|mhoro|salibonani|good (morning|afternoon|evening))\b/.test(t))return {text:"Hello! Welcome to LB ELECTRICALS. What are you looking for today? Tap an option or type an item.",chips:CHIPS};
+  if(/\b(thank|thanks|ndatenda|siyabonga)\b/.test(t))return {text:"You're welcome! Anything else I can help with?",chips:["View my basket","Show sockets","Talk to a person"]};
+  if(/(person|human|someone|agent|speak|talk to|call|whatsapp|contact|owner|manager)/.test(t))return {text:waReady()?"Sure. Tap the green button to chat with our team on WhatsApp.":"Please use the Contact tab to reach our team.",wa:waReady()?waLink("Hello "+cfg.business+", I have a question: "+(/(person|human|talk|speak)/.test(t)?"":q)):null};
+  if(/(basket|cart|checkout|my order|send order|send my)/.test(t)){
+    if(!basket.length)return {text:"Your basket is empty. Tell me what you need, or tap a category.",chips:CHIPS};
+    return {text:"Your basket:\n"+basketText(),actions:[{label:"Open basket & send",act:"basket"}],chips:["Show sockets","Talk to a person"]};
+  }
+  if(/deliver/.test(t))return {text:faq.delivery,chips:["View my basket","Talk to a person"]};
+  if(/(how.*(order|buy)|place.*order|how does this work)/.test(t))return {text:"It's easy:\n1) Find items in Shop or ask me.\n2) Tap Add to put them in your basket.\n3) Open Basket and tap Send on WhatsApp.\nWe'll reply to confirm what we can supply, the price and delivery.",chips:["Show sockets","Show cables","View my basket"]};
+  if(/(ecocash|payment|how.*pay|pay.*how|cash|rtgs|zipit|swipe)/.test(t))return {text:faq.payment,chips:["View my basket","Talk to a person"]};
+  if(/(open|hours|closing|where are you|location|address|located|visit)/.test(t))return {text:faq.hours,wa:waReady()?waLink("Hello "+cfg.business+", where are you located and what are your opening hours?"):null};
+  if(/(which|what|size|how thick).*(cable|wire)|(cable|wire) size/.test(t)||/(1\.5|2\.5)\s*mm.*(for|use)/.test(t))return {text:"A common guide: 1.5mm twin & earth for lighting circuits, 2.5mm for socket circuits. Cookers, geysers and long runs need heavier cable and the right breaker, so please check with a qualified electrician.",chips:["Show cables","Breakers & boards","Talk to a person"]};
+  const ids=search(q);
+  if(ids.length){
+    const priceQ=/(price|cost|how much|\$|usd)/.test(t);
+    return {text:(ids.length===1?"Here's what I found:":"Here's what I found. Tap Add to put an item in your basket:")+(priceQ?"\nPrices are confirmed by LB ELECTRICALS when you send your list (listed prices show below).":""),items:ids,chips:["View my basket","Show sockets","Talk to a person"]};
+  }
+  return {text:"I couldn't find “"+q.slice(0,60)+"” in our list. I can add it to your basket as a custom item and our team will check if we can supply it.",actions:[{label:"Add “"+q.slice(0,30)+"” to basket",act:"custom",q:q.slice(0,120)}],wa:waReady()?waLink("Hello "+cfg.business+", do you supply: "+q+"?"):null,chips:CHIPS.slice(0,4)};
+}
+function cardHtml(i){
+  const ok=i.inStock!==false;
+  return `<div class="rc" data-open="${esc(i.id)}">${i.img?`<img src="${esc(i.img)}" alt="" onerror="imgFix(this)">`:'<div class="ph">⚡</div>'}
+  <div class="t">${i.brand?`<div class="brand">${esc(i.brand)}</div>`:""}<b>${esc(i.n)}</b><br><span class="tag ${ok?"ok":"no"}">${ok?"We can supply":"Unavailable"}</span>${i.price?` <b>US$${esc(i.price)}</b>`:""}</div>
+  <button class="a" data-add="${esc(i.id)}" ${ok?"":"disabled"}>Add</button></div>`;
+}
+function drawThread(){
+  $("chat").innerHTML=thread.map((m,idx)=>{
+    if(m.role==="u")return `<div class="m u">${esc(m.text)}</div>`;
+    const last=idx===thread.length-1;
+    return `<div class="m a">${esc(m.text)}</div>`+(m.items||[]).map(id=>{const i=catalog.find(x=>x.id===id);return i?cardHtml(i):""}).join("")
+      +((last&&(m.wa||m.actions||m.chips))?`<div class="chips">${m.wa?`<a class="chip" href="${esc(m.wa)}" target="_blank" rel="noopener">Chat on WhatsApp</a>`:""}${(m.actions||[]).map(a=>`<button class="chip" data-act="${a.act}" data-q="${esc(a.q||"")}">${esc(a.label)}</button>`).join("")}${(m.chips||[]).map(c=>`<button class="chip" data-chip="${esc(c)}">${esc(c)}</button>`).join("")}</div>`:"");
+  }).join("");
+  $("chat").scrollTop=1e9;
+}
+function say(m){thread.push({role:"a",...m});drawThread()}
+function ask(text){
+  text=String(text||"").trim();if(!text)return;
+  thread.push({role:"u",text});$("cin").value="";
+  const r=reply(text);setTimeout(()=>say(r),250);drawThread();
+}
+$("csend").onclick=()=>ask($("cin").value);
+$("cin").onkeydown=e=>{if(e.key==="Enter")ask($("cin").value)};
+$("chat").addEventListener("click",e=>{
+  const add=e.target.closest("[data-add]"),chip=e.target.closest("[data-chip]"),act=e.target.closest("[data-act]");
+  if(add){const it=catalog.find(x=>x.id===add.dataset.add);if(it){addItem(it.n);add.textContent="Added ✓";say({text:"Added “"+it.n+"” to your basket. Anything else?",chips:["View my basket","Show sockets","Show cables","Talk to a person"]})}}
+  else if(chip)ask(chip.dataset.chip);
+  else if(e.target.closest("[data-open]"))openSheet(e.target.closest("[data-open]").dataset.open);
+  else if(act){if(act.dataset.act==="basket")go("basket");else if(act.dataset.act==="custom"){addItem(act.dataset.q);say({text:"Added “"+act.dataset.q+"” to your basket as a custom item. Our team will confirm if we can supply it.",chips:["View my basket","Show sockets","Talk to a person"]})}}
+});
+
+const CATICON={"Sockets & switches":"🔌","Conduit & fittings":"🔧","Boxes & trunking":"📦","Cable & wire":"➰","Protection & DB":"🛡️","Lighting":"💡","Plugs & extensions":"🔋","Paint & coatings":"🎨"};
+function drawCats(){
+  const cats=[...new Set(catalog.map(i=>i.c))],cur=$("cat").value;
+  $("cats").innerHTML=['<button class="cc'+(cur?"":" on")+'" data-c="">All</button>'].concat(cats.map(c=>`<button class="cc${cur===c?" on":""}" data-c="${esc(c)}">${CATICON[c]||"⚡"} ${esc(c)}</button>`)).join("");
+}
+$("cats").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;$("cat").value=b.dataset.c;drawCats();renderGrid()});
+let shQty=1;
+function openSheet(id){
+  const i=catalog.find(x=>x.id===id);if(!i)return;shQty=1;const ok=i.inStock!==false;
+  const ask=waReady()?waLink("Hello "+cfg.business+", I'd like to ask about: "+i.n):"#";
+  $("sheet").innerHTML=`<button class="x" id="sx" aria-label="Close">×</button>
+   ${i.img?`<img src="${esc(i.img)}" alt="${esc(i.n)}" onerror="imgFix(this)">`:'<div class="ph">⚡</div>'}
+   ${i.brand?`<div class="brand">${esc(i.brand)}</div>`:""}<h3>${esc(i.n)}</h3>
+   <p class="mut" style="margin:0 0 8px">${esc(i.d)} · ${esc(i.c)}</p>
+   <div style="margin-bottom:12px"><span class="tag ${ok?"ok":"no"}">${ok?"We can supply":"Currently unavailable"}</span>${i.price?` <b style="font-size:18px">US$${esc(i.price)}</b>`:' <span class="mut">Price confirmed on WhatsApp</span>'}</div>
+   <div class="row" style="align-items:center"><div class="stepper"><button id="sm">−</button><b id="sq">1</b><button id="sp">+</button></div><button class="a" id="sadd" ${ok?"":"disabled"} style="flex:1;padding:13px">Add to basket</button></div>
+   <a class="wbtn" href="${esc(ask)}" target="_blank" rel="noopener" style="margin-top:10px;text-align:center">Ask about this item on WhatsApp</a>`;
+  $("sheetbg").style.display="flex";
+  const si=$("sheet").querySelector("img");if(si)si.onclick=()=>{$("lbimg").src=si.src;$("lightbox").style.display="flex"};
+  $("sx").onclick=closeSheet;$("sm").onclick=()=>{shQty=Math.max(1,shQty-1);$("sq").textContent=shQty};$("sp").onclick=()=>{shQty++;$("sq").textContent=shQty};
+  $("sadd").onclick=()=>{addItem(i.n,shQty);closeSheet()};
+}
+function closeSheet(){$("sheetbg").style.display="none"}
+$("lightbox").onclick=()=>{$("lightbox").style.display="none"};
+$("sheetbg").addEventListener("click",e=>{if(e.target.id==="sheetbg")closeSheet()});
+$("hero-chat").onclick=()=>go("chat");
+
 const offl=()=>$("off").style.display=navigator.onLine?"none":"block";addEventListener("online",offl);addEventListener("offline",offl);offl();
 let dp=null;
 addEventListener("beforeinstallprompt",e=>{e.preventDefault();dp=e;$("inst").style.display="inline-block"});
@@ -162,11 +316,15 @@ if("serviceWorker"in navigator)addEventListener("load",()=>navigator.serviceWork
 (async()=>{
   basket=store.get("lb_basket",[]);const c=store.get("lb_contact",{});$("f-name").value=c.name||"";$("f-area").value=c.area||"";
   try{cfg={...cfg,...await (await fetch("config.json")).json()}}catch{}
+  cfg.faq={...DEF_FAQ,...(cfg.faq||{})};
   $("area").textContent=cfg.area||"Harare";$("ver").textContent=VERSION;
   if(waReady())$("wa").href="https://wa.me/"+waNum()+"?text="+encodeURIComponent(`Hello ${cfg.business}, I'd like to enquire about electrical goods.`);else $("wa").style.display="none";
+  if(waReady())$("hero-wa").href=waLink("Hello "+cfg.business+", I'd like to enquire about electrical goods.");else $("hero-wa").style.display="none";
+  $("share").href="https://wa.me/?text="+encodeURIComponent("Order electrical goods from "+cfg.business+" on your phone: "+location.href.split("#")[0].split("?")[0]);
   try{catalog=await (await fetch("catalog.json")).json()}catch{}
-  $("cat").innerHTML='<option value="">All categories</option>'+[...new Set(catalog.map(i=>i.c))].map(c=>`<option>${esc(c)}</option>`).join("");
+  drawCats();
   renderGrid();drawBasket();
+  thread=[{role:"a",text:"Hello! I'm the LB ELECTRICALS assistant. Tell me what you need (for example “13A double socket”, “2.5mm cable”, “LED bulbs”) or tap an option.",chips:CHIPS}];drawThread();
 })();
 </script>
 </body>
